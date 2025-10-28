@@ -6,6 +6,12 @@
 
 Model Context Protocol (MCP) toolkit for driving [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) polar analyses from agents or automation scripts. It wraps the CLI workflow—coordinate ingestion, input script generation, result parsing—so tools can request lift/drag data without hand-coding shell glue.
 
+## Why you might want this
+
+- **Automate airfoil studies** – feed raw coordinates and let an agent schedule lift/drag sweeps without opening XFOIL manually.
+- **Skip ad-hoc shell scripts** – the package writes the control script, manages the working directory, and normalises the CSV output.
+- **Keep pipelines reproducible** – every request captures the script and result text, making it easy to archive or replay analyses.
+
 ## Features
 
 - Typed request/response models for polar sweeps.
@@ -65,6 +71,8 @@ uv pip install --system -e .[dev]
 uv run ruff check .
 uv run pytest
 ```
+
+The tests double as usage samples: each one mocks XFOIL so newcomers can see the minimum request payload and the shape of the CSV response.
 
 ## License
 

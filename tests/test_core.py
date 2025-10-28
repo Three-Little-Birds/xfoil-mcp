@@ -26,6 +26,11 @@ def _fake_run(
 
 
 def test_compute_polar_returns_csv(tmp_path: Path) -> None:
+    """Simulate an XFOIL run and ensure the helper emits a CSV string.
+
+    The subprocess call is patched so newcomers can see the minimum request
+    payload without needing XFOIL installed locally.
+    """
     request = PolarRequest(
         airfoil_name="demo",
         airfoil_data="demo airfoil",
@@ -43,6 +48,7 @@ def test_compute_polar_returns_csv(tmp_path: Path) -> None:
 
 
 def test_fastapi_endpoint(tmp_path: Path) -> None:
+    """Exercise the FastAPI surface so developers can copy/paste a request."""
     app = create_app()
     client = TestClient(app)
     payload = {
