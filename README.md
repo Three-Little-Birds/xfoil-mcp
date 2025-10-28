@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](pyproject.toml)
 [![CI](https://github.com/yevheniikravchuk/xfoil-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/yevheniikravchuk/xfoil-mcp/actions/workflows/ci.yml)
 
-Domain-neutral Model Context Protocol (MCP) toolkit for running [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) polar analyses from agents or automation scripts. The package bundles reusable Pydantic models, an MCP-ready FastAPI server, and a python-sdk tool factory so you can embed XFOIL in your own workflows without inheriting any Orthodrone-specific schema.
+Model Context Protocol (MCP) toolkit for driving [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) polar analyses from agents or automation scripts. It wraps the CLI workflow—coordinate ingestion, input script generation, result parsing—so tools can request lift/drag data without hand-coding shell glue.
 
 ## Features
 
