@@ -19,8 +19,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yevheniikravchuk/xfoil-mcp"
-Repository = "https://github.com/yevheniikravchuk/xfoil-mcp"
+Homepage = "https://github.com/Three-Little-Birds/xfoil-mcp"
+Repository = "https://github.com/Three-Little-Birds/xfoil-mcp"
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]

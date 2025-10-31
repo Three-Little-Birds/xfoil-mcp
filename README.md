@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.10+-brightgreen.svg)](pyproject.toml)
-[![CI](https://github.com/yevheniikravchuk/xfoil-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/yevheniikravchuk/xfoil-mcp/actions/workflows/ci.yml)
+[![CI](https://github.com/Three-Little-Birds/xfoil-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/Three-Little-Birds/xfoil-mcp/actions/workflows/ci.yml)
 
 This repository turns the classic [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) polar solver into an approachable learning project for Model Context Protocol (MCP) agents. Instead of wrestling with shell scripts, you can hand an agent a set of coordinates and walk away with a clean CSV table of lift, drag, and moment data.
 
@@ -29,7 +29,7 @@ export XFOIL_BIN=/path/to/xfoil
 ## Step 1 – Install the wrapper
 
 ```bash
-uv pip install "git+https://github.com/yevheniikravchuk/xfoil-mcp.git"
+uv pip install "git+https://github.com/Three-Little-Birds/xfoil-mcp.git"
 ```
 
 This brings in the typed request/response models, FastAPI surface, and python-sdk tool helper. The package has no heavy dependencies; as long as XFOIL itself is reachable the wrapper will do the rest.
