@@ -109,6 +109,15 @@ uv run mcp dev examples/xfoil_tool.py
 
 Connect any MCP-compatible agent (Cursor, Claude Desktop, Windsurf, ...) and ask for polars on demand.
 
+### ToolHive smoke test
+
+Requires `XFOIL_BIN` pointing to the XFOIL executable:
+
+```bash
+export XFOIL_BIN=/path/to/xfoil
+uvx --with 'mcp==1.20.0' python scripts/integration/run_xfoil.py
+```
+
 ## Agent playbook
 
 - **Batch sweeps** - iterate through a directory of `.dat` files and persist each polar to object storage.
