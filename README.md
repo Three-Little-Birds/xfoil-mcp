@@ -1,4 +1,4 @@
-# xfoil-mcp · Aerodynamic polars on-call for your MCP agents
+# xfoil-mcp - Aerodynamic polars on-call for your MCP agents
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
@@ -27,7 +27,7 @@
 | **New users** | One `uv pip install` plus a concrete polar example; CSVs land on disk with clear headers. | Typed models and example responses keep the learning curve shallow. |
 | **Experienced teams** | Drop-in FastAPI app or STDIO tool compatible with the Model Context Protocol. | Deterministic artefact folders (`response.workdir`) simplify audits and orchestration.
 
-The layout mirrors 2025 README recommendations—purpose up top, actionable steps next, then detail for deeper dives.【turn0search0】
+The layout mirrors 2025 README recommendations-purpose up top, actionable steps next, then detail for deeper dives.[turn0search0]
 
 ## Quickstart
 
@@ -100,13 +100,13 @@ Launch:
 uv run mcp dev examples/xfoil_tool.py
 ```
 
-Connect any MCP-compatible agent (Cursor, Claude Desktop, Windsurf, …) and ask for polars on demand.
+Connect any MCP-compatible agent (Cursor, Claude Desktop, Windsurf, ...) and ask for polars on demand.
 
 ## Agent playbook
 
-- **Batch sweeps** – iterate through a directory of `.dat` files and persist each polar to object storage.
-- **Optimisation loops** – embed the tool inside a genetic algorithm; typed responses keep mutation + evaluation deterministic.
-- **Visualisation** – feed `response.csv_path` into Plotly or Matplotlib to plot `Cl` vs. `Cd` without manual parsing.
+- **Batch sweeps** - iterate through a directory of `.dat` files and persist each polar to object storage.
+- **Optimisation loops** - embed the tool inside a genetic algorithm; typed responses keep mutation + evaluation deterministic.
+- **Visualisation** - feed `response.csv_path` into Plotly or Matplotlib to plot `Cl` vs. `Cd` without manual parsing.
 
 ## Stretch ideas
 
@@ -116,7 +116,7 @@ Connect any MCP-compatible agent (Cursor, Claude Desktop, Windsurf, …) and ask
 
 ## Accessibility & upkeep
 
-- Badges include descriptive alt text and are limited to five for readability on mobile.【turn0search0】
+- Badges include descriptive alt text and are limited to five for readability on mobile.[turn0search0]
 - Tests mock XFOIL so they run quickly: `uv run pytest`.
 - Use `uv run ruff check .` before submitting changes.
 
@@ -126,4 +126,4 @@ Connect any MCP-compatible agent (Cursor, Claude Desktop, Windsurf, …) and ask
 2. Run the formatting and test suite.
 3. Open a PR with before/after polar snippets so reviewers can verify quickly.
 
-MIT license — see [LICENSE](LICENSE).
+MIT license - see [LICENSE](LICENSE).
