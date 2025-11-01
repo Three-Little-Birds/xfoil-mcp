@@ -11,7 +11,7 @@
 
 ## Table of contents
 
-1. [Why agents love it](#why-agents-love-it)
+1. [What it provides](#what-it-provides)
 2. [Quickstart](#quickstart)
 3. [Run as a service](#run-as-a-service)
 4. [Agent playbook](#agent-playbook)
@@ -19,14 +19,13 @@
 6. [Accessibility & upkeep](#accessibility--upkeep)
 7. [Contributing](#contributing)
 
-## Why agents love it
+## What it provides
 
-| Persona | What you get immediately | Why it scales |
-|---------|-------------------------|---------------|
-| **New users** | One `uv pip install` plus a concrete polar example; CSVs land on disk with clear headers. | Typed models and example responses keep the learning curve shallow. |
-| **Experienced teams** | Drop-in FastAPI app or STDIO tool compatible with the Model Context Protocol. | Deterministic artefact folders (`response.workdir`) simplify audits and orchestration.
-
-The layout mirrors 2025 README recommendations-purpose up top, actionable steps next, then detail for deeper dives.
+| Scenario | Value |
+|----------|-------|
+| Quick experiments | Compute lift/drag/moment polars from an airfoil file or NACA code without launching XFOIL manually. |
+| MCP integration | STDIO/HTTP transports that follow the Model Context Protocol so ToolHive or other clients can call XFOIL programmatically. |
+| Audit trail | Responses include on-disk work directories and metadata so you can trace which inputs produced a given polar. |
 
 ## Quickstart
 
