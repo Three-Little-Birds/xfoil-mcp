@@ -9,10 +9,18 @@ from .models import PolarRequest, PolarResponse
 
 
 def build_tool(app: FastMCP) -> None:
-    """Register the polar analysis tool on the provided MCP app."""
+    """Register XFOIL polar computation tooling on an MCP server."""
 
-    @app.tool()
-    def polar(request: PolarRequest) -> PolarResponse:  # type: ignore[valid-type]
+    @app.tool(
+        name="xfoil.compute_polar",
+        description=(
+            "Run XFOIL for an airfoil at specified Reynolds angle of attack sweep. "
+            "Input airfoil coordinates or NACA code plus sweep parameters. "
+            "Returns lift/drag polar tables and solver metadata."
+        ),
+        meta={"version": "0.1.1", "categories": ["aero", "analysis"]},
+    )
+    def polar(request: PolarRequest) -> PolarResponse:
         return compute_polar(request)
 
 
