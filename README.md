@@ -73,6 +73,15 @@ print(df.head())
 
 ## Run as a service
 
+### CLI (STDIO transport)
+
+```bash
+uvx xfoil-mcp  # runs the MCP over stdio
+# or python -m xfoil_mcp
+```
+
+Use `python -m xfoil_mcp --describe` to view metadata and exit.
+
 ### FastAPI (REST)
 
 ```bash
