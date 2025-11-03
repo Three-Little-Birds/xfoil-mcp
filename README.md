@@ -71,11 +71,12 @@ print(df.head())
 
 ## Run as a service
 
-### CLI (STDIO transport)
+### CLI (STDIO / Streamable HTTP)
 
 ```bash
 uvx xfoil-mcp  # runs the MCP over stdio
 # or python -m xfoil_mcp
+python -m xfoil_mcp --transport streamable-http --host 0.0.0.0 --port 8000 --path /mcp
 ```
 
 Use `python -m xfoil_mcp --describe` to view metadata and exit.
@@ -116,6 +117,8 @@ Requires `XFOIL_BIN` pointing to the XFOIL executable:
 ```bash
 export XFOIL_BIN=/path/to/xfoil
 uvx --with 'mcp==1.20.0' python scripts/integration/run_xfoil.py
+# ToolHive 2025+ defaults to Streamable HTTP; match that transport when registering
+# the workload manually to avoid the legacy SSE proxy failures.
 ```
 
 ## Agent playbook
