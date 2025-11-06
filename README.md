@@ -69,7 +69,7 @@ print("CSV stored at", polar_csv_path)
 Inspect the first few rows:
 
 ```python
-df = pd.read_csv(StringIO(response.csv))
+df = pd.read_csv(StringIO(response.csv), comment="#")
 print(df.head())
 ```
 
@@ -86,6 +86,32 @@ python -m xfoil_mcp --transport streamable-http --host 0.0.0.0 --port 8000 --pat
 ```
 
 Use `python -m xfoil_mcp --describe` to view metadata and exit.
+
+> **Tip (macOS/Linux):** building XFOIL natively requires XQuartz/X11 headers. To avoid that setup, run the quickstart inside the repo's Docker recipe:
+> ```bash
+> docker run --rm -v "$PWD/extern/xfoil-mcp:/workspace/xfoil-mcp" python:3.13-slim bash -lc '
+>   set -euo pipefail
+>   apt-get update && apt-get install -y --no-install-recommends xfoil build-essential \
+>     && pip install --no-cache-dir pandas /workspace/xfoil-mcp \
+>     && python - <<"PY"
+> from pathlib import Path
+> from io import StringIO
+> import pandas as pd
+> from xfoil_mcp import PolarRequest, compute_polar
+>
+> airfoil_path = Path("examples/naca2412.dat")
+> request = PolarRequest(
+>     airfoil_name="naca2412",
+>     airfoil_data=airfoil_path.read_text(encoding="utf-8"),
+>     alphas=[-2 + 0.5 * i for i in range(29)],
+>     reynolds=1.2e6,
+>     mach=0.08,
+> )
+> response = compute_polar(request)
+> print(pd.read_csv(StringIO(response.csv), comment="#").head())
+> PY
+> '
+> ```
 
 ### Handling failures
 
