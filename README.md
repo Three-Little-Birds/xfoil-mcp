@@ -35,7 +35,7 @@
 uv pip install "git+https://github.com/Three-Little-Birds/xfoil-mcp.git"
 ```
 
-Ensure the XFOIL binary is on your `PATH` (or point to it explicitly):
+Download XFOIL from the [official MIT site](https://web.mit.edu/drela/Public/web/xfoil/) and place the executable on your `PATH` (or point to it explicitly):
 
 ```bash
 export XFOIL_BIN=/path/to/xfoil
@@ -44,12 +44,10 @@ export XFOIL_BIN=/path/to/xfoil
 ### 2. Compute your first polar
 
 ```python
-from pathlib import Path
-
 from xfoil_mcp import PolarRequest, compute_polar
 
 request = PolarRequest(
-    airfoil_path=str(Path("naca2412.dat")),
+    airfoil_path="examples/naca2412.dat",  # sample airfoil supplied with this repo
     alpha_start_deg=-2,
     alpha_end_deg=12,
     alpha_step_deg=0.5,
@@ -60,7 +58,7 @@ response = compute_polar(request)
 print("CSV stored at", response.csv_path)
 ```
 
-Analyse with `pandas`:
+Inspect the first few rows:
 
 ```python
 import pandas as pd
@@ -69,6 +67,7 @@ df = pd.read_csv(response.csv_path)
 print(df.head())
 ```
 
+The CSV columns follow XFOIL's standard order (`alpha_deg`, `cl`, `cd`, `cm`, `cdp`, `cl/cd`, …).
 ## Run as a service
 
 ### CLI (STDIO / Streamable HTTP)
