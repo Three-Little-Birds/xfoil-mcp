@@ -67,7 +67,8 @@ df = pd.read_csv(response.csv_path)
 print(df.head())
 ```
 
-The CSV columns follow XFOIL's standard order (`alpha_deg`, `cl`, `cd`, `cm`, `cdp`, `cl/cd`, …).
+- The bundled `examples/naca2412.dat` follows cosine-spaced sampling (identical to XFOIL's `PANE` output) so you can drop it into your own scripts without re-gridding.
+- The CSV header is normalised to `alpha, CL, CD, CM`. XFOIL may append extra columns (e.g. `CDp`, `Cl/Cd`, transition locations); those appear after the first four fields and remain untouched.
 ## Run as a service
 
 ### CLI (STDIO / Streamable HTTP)
@@ -79,6 +80,10 @@ python -m xfoil_mcp --transport streamable-http --host 0.0.0.0 --port 8000 --pat
 ```
 
 Use `python -m xfoil_mcp --describe` to view metadata and exit.
+
+### Handling failures
+
+`compute_polar` raises `RuntimeError` when XFOIL fails to emit a polar (common causes: laminar separation, too few iterations, or Reynolds numbers below ~5e4). The stderr/stdout from XFOIL is preserved in the exception message—increase `ITER`, seed a better initial airfoil mesh, or adjust `alpha_start_deg/alpha_step_deg` in response. Non-zero exit codes that still produce a polar are annotated in the CSV with a leading `# xfoil exit code ...` comment so you can decide whether to discard or accept the run.
 
 ### FastAPI (REST)
 
