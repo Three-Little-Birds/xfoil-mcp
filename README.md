@@ -44,26 +44,32 @@ export XFOIL_BIN=/path/to/xfoil
 ### 2. Compute your first polar
 
 ```python
+from pathlib import Path
+from io import StringIO
+
+import pandas as pd
+
 from xfoil_mcp import PolarRequest, compute_polar
 
+airfoil_path = Path("examples/naca2412.dat")  # bundled sample airfoil
 request = PolarRequest(
-    airfoil_path="examples/naca2412.dat",  # sample airfoil supplied with this repo
-    alpha_start_deg=-2,
-    alpha_end_deg=12,
-    alpha_step_deg=0.5,
+    airfoil_name="naca2412",
+    airfoil_data=airfoil_path.read_text(encoding="utf-8"),
+    alphas=[-2 + 0.5 * i for i in range(29)],  # -2 .. 12 in 0.5° steps
     reynolds=1.2e6,
     mach=0.08,
 )
 response = compute_polar(request)
-print("CSV stored at", response.csv_path)
+
+polar_csv_path = Path("polar.csv")
+polar_csv_path.write_text(response.csv, encoding="utf-8")
+print("CSV stored at", polar_csv_path)
 ```
 
 Inspect the first few rows:
 
 ```python
-import pandas as pd
-
-df = pd.read_csv(response.csv_path)
+df = pd.read_csv(StringIO(response.csv))
 print(df.head())
 ```
 
