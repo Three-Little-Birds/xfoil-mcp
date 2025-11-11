@@ -9,6 +9,10 @@
 
 > **TL;DR**: Wrap [XFOIL](https://web.mit.edu/drela/Public/web/xfoil/) in an MCP-native service so agents can request lift/drag/moment polars without touching shell scripts.
 
+<a href="https://glama.ai/mcp/servers/@yevheniikravchuk/xfoil-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@yevheniikravchuk/xfoil-mcp/badge" alt="XFOIL Server MCP server" />
+</a>
+
 ## Table of contents
 
 1. [What it provides](#what-it-provides)
